@@ -8,19 +8,19 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-    @IBOutlet weak var downloadImageView: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var downloadImageView: UIImageView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDownloadImage()
+        downloadImage()
     }
     
-    private func setupDownloadImage() {
+    private func downloadImage() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         
-        guard let url = URL(string: "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg") else {return}
+        guard let url = URLStorage.downloadImage else {return}
         
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in

@@ -17,27 +17,37 @@ class NetworkViewController: UIViewController {
     }
     
     @IBAction func pressPostButton(_ sender: UIButton) {
-        callPostRequest()
+        pushUploadImageViewController()
     }
     
     @IBAction func pressDownloadButton(_ sender: UIButton) {
-        downloadImage()
+        pushImageViewController()
     }
 
     @IBAction func pressAllDataButton(_ sender: UIButton) {
-        let allData: AllDataViewController = UIStoryboard.instantiateViewController()
-        
-        navigationController?.pushViewController(allData, animated: true)
+        pushAllDataViewController()
     }
     
-    private func downloadImage() {
-        let imageViewController: ImageViewController = UIStoryboard.instantiateViewController()
+    private func pushAllDataViewController() {
+        let allDataVC: AllDataViewController = UIStoryboard.instantiateViewController()
         
-        navigationController?.pushViewController(imageViewController, animated: true)
+        navigationController?.pushViewController(allDataVC, animated: true)
+    }
+    
+    private func pushUploadImageViewController() {
+        let uploadImageVC: UploadImageViewController  = UIStoryboard.instantiateViewController()
+        
+        navigationController?.pushViewController(uploadImageVC, animated: true)
+    }
+    
+    private func pushImageViewController() {
+        let imageVC: ImageViewController = UIStoryboard.instantiateViewController()
+        
+        navigationController?.pushViewController(imageVC, animated: true)
     }
     
     private func callGetRequest() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+        guard let url = URLStorage.jsonData else { return }
         
         let session = URLSession.shared
         
@@ -50,34 +60,6 @@ class NetworkViewController: UIViewController {
                 print(error)
             }
             print(data)
-        }.resume()
-    }
-    
-    private func callPostRequest() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
-        
-        let userData = ["Course": "Networking", "Task": "GET and POST requests"]
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: userData, options: []) else { return }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { data, response, error in
-            
-            guard let response = response, let data = data else { return }
-            
-            print(response)
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                print(json)
-            } catch {
-                print(error)
-            }
         }.resume()
     }
 }

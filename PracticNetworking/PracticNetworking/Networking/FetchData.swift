@@ -1,30 +1,25 @@
 //
-//  DecodeJsonData.swift
+//  FetchData.swift
 //  PracticNetworking
 //
 //  Created by Сергей Гнидь on 21.10.2021.
 //
 
-import UIKit
+import Foundation
 
-class DecodeJsonData {
+class FetchData {
+    static let shared = FetchData()
     
-    var arr = [Date]()
-    
-    func getData() -> [Data] {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { fatalError() }
-        
+    func getData(url: URL ,onCompletion: @escaping ([DataJson]) -> ()) {
         let session = URLSession.shared
-        
-        let arr = [Date]()
         
         session.dataTask(with: url) { data, _, error in
             guard let data = data else { return }
             
             do {
                 let decoder = JSONDecoder()
-                let dates = try decoder.decode([Date].self, from: data)
-                
+                let jsonData = try decoder.decode([DataJson].self, from: data)
+                onCompletion(jsonData)
             } catch {
                 print(error)
             }

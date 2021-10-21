@@ -8,51 +8,45 @@
 import UIKit
 
 class AllDataViewController: UIViewController {
+    @IBOutlet private weak var allDataTableView: UITableView!
     
-    @IBOutlet weak var allDataTableView: UITableView!
-    
-    var arr = [Date]()
-    
+    private var arrayOfJSON = [DataJson]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
-        print(arr)
+        setupCell()
+        setupData()
     }
     
-    func getData() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: url) { data, _, error in
-            guard let data = data else { return }
-            
-            do {
-                let decoder = JSONDecoder()
-                self.arr = try decoder.decode([Date].self, from: data)
-            } catch {
-                print(error)
+    private func setupData() {
+        guard let url = URLStorage.jsonData else { return }
+
+        FetchData.shared.getData(url: url, onCompletion: { (fetchedData: [DataJson]) in
+            DispatchQueue.main.async {
+                self.arrayOfJSON = fetchedData
+                self.allDataTableView.reloadData()
             }
-        }.resume()
+        })
+    }
+    
+    private func setupCell() {
+        allDataTableView.register(JsonTableViewCell.nib(), forCellReuseIdentifier: JsonTableViewCell.identifier)
     }
 }
 
-extension AllDataViewController: UITableViewDelegate {
-    
-}
+// MARK: - UITableViewDataSource
 
 extension AllDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return arrayOfJSON.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: JsonTableViewCell.identifier, for: indexPath)
+        guard let cell = tableViewCell as? JsonTableViewCell else { return UITableViewCell() }
+        cell.setupCell(data: arrayOfJSON[indexPath.row])
         return cell
     }
-    
-    
 }
 
 

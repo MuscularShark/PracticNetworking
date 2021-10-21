@@ -87,6 +87,79 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="114.50892857142857"/>
         </scene>
+        <!--UploadImageViewController-->
+        <scene sceneID="R5h-Ik-Okw">
+            <objects>
+                <viewController storyboardIdentifier="UploadImageViewController" title="UploadImageViewController" id="2cx-8g-X6Y" customClass="UploadImageViewController" customModule="PracticNetworking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nMO-bY-K3e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="HcP-Dy-Stp">
+                                <rect key="frame" x="87" y="296.5" width="240" height="313"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZSU-2u-VtY">
+                                        <rect key="frame" x="0.0" y="1" width="240" height="170"/>
+                                        <color key="backgroundColor" systemColor="separatorColor"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="HgS-NF-Beu"/>
+                                            <constraint firstAttribute="height" constant="172" id="nqd-mg-V2A"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mk0-uO-fPQ">
+                                        <rect key="frame" x="0.0" y="203" width="240" height="39.5"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39.5" id="XDC-5U-PfL"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Select Image">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pressSelectImageButton:" destination="2cx-8g-X6Y" eventType="touchUpInside" id="c93-TN-Jes"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJI-vx-7XR">
+                                        <rect key="frame" x="0.0" y="273.5" width="240" height="39.5"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39.5" id="iKq-XI-rZo"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Upload">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="21"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pressUploadButton:" destination="2cx-8g-X6Y" eventType="touchUpInside" id="EeP-pA-jM5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="GNK-gS-499"/>
+                                    <constraint firstAttribute="height" constant="313" id="iuW-Bf-993"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b6s-pg-Hfs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HcP-Dy-Stp" firstAttribute="centerX" secondItem="b6s-pg-Hfs" secondAttribute="centerX" id="79f-jV-p84"/>
+                            <constraint firstItem="HcP-Dy-Stp" firstAttribute="centerY" secondItem="b6s-pg-Hfs" secondAttribute="centerY" id="OFp-5b-BuS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="uploadButton" destination="uJI-vx-7XR" id="AuS-2I-FSl"/>
+                        <outlet property="uploadImageView" destination="ZSU-2u-VtY" id="xru-GT-JgF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mfp-3P-Lkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1792.753623188406" y="114.50892857142857"/>
+        </scene>
         <!--AllDataViewController-->
         <scene sceneID="Ury-wu-Frp">
             <objects>
@@ -95,22 +168,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YlU-XD-ffO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YlU-XD-ffO">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="rHJ-yX-Qmd">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rHJ-yX-Qmd" id="CNQ-1c-SU9">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="jyK-s6-zkq" id="TP2-zU-oAM"/>
-                                    <outlet property="delegate" destination="jyK-s6-zkq" id="m7M-uR-9cv"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -129,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpi-8c-cDh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="445"/>
+            <point key="canvasLocation" x="1812" y="842"/>
         </scene>
         <!--ImageViewController-->
         <scene sceneID="n3Y-xn-iB5">
@@ -165,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIo-lB-HNu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="-417"/>
+            <point key="canvasLocation" x="1793" y="-575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rvd-Es-3ZA">
@@ -187,6 +249,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="questionmark" catalog="system" width="96" height="128"/>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
