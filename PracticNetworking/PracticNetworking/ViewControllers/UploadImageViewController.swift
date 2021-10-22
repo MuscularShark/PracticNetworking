@@ -43,8 +43,7 @@ class UploadImageViewController: UIViewController {
     
     private func uploadImage() {
         guard let imageData: Data = uploadImageView.image?.jpegData(compressionQuality: 1),
-              let url = URLStorage.uploadImage
-            else { return }
+              let url = URLStorage.uploadImage else { return }
         
         let clientId = "5af4a79c42ea7df"
         
