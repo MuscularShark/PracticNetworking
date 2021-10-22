@@ -8,27 +8,43 @@
 import UIKit
 
 class UploadImageViewController: UIViewController {
-    @IBOutlet weak var uploadImageView: UIImageView!
-    @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet private weak var uploadImageView: UIImageView!
+    @IBOutlet private weak var uploadButton: UIButton!
     
-    var backgroundTaskIdentifier:UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
+    private var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func pressSelectImageButton(_ sender: UIButton) {
+    @IBAction private func pressSelectImageButton(_ sender: UIButton) {
         uploadButton.isHidden = false
         setupAlertChangePhoto()
     }
     
-    @IBAction func pressUploadButton(_ sender: UIButton) {
+    @IBAction private func pressUploadButton(_ sender: UIButton) {
+        statusUpload()
         uploadImage()
+    }
+    
+    private func statusUpload() {
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil)
+        
+        switch uploadImageView.image {
+        case .none:
+            showAlert(title: "No image selected", message: "Please, select image", action: okAction, type: .alert)
+        case .some(_):
+            showAlert(title: "Done", message: "Success", action: okAction, type: .alert)
+        }
     }
     
     private func uploadImage() {
         guard let imageData: Data = uploadImageView.image?.jpegData(compressionQuality: 1),
-              let url = URLStorage.uploadImage else { return }
+              let url = URLStorage.uploadImage,
+              let backgroundTaskIdentifier = backgroundTaskIdentifier else { return }
         
         let clientId = "5af4a79c42ea7df"
         
@@ -36,7 +52,7 @@ class UploadImageViewController: UIViewController {
         
         DispatchQueue.global().async {
             self.backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(withName: "backgroundTask") {
-                UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
+                UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
                 self.backgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
             }
         }
@@ -58,7 +74,7 @@ class UploadImageViewController: UIViewController {
         }.resume()
         
         UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
-        backgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
+        self.backgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
     }
     
     private func setupAlertChangePhoto() {
@@ -99,8 +115,7 @@ extension UploadImageViewController: URLSessionDelegate {
     func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
         DispatchQueue.main.async {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-                  let backgroundCompletionHandler =
-                  appDelegate.backgroundCompletionHandler
+                  let backgroundCompletionHandler = appDelegate.backgroundCompletionHandler
             else {
                 return
             }

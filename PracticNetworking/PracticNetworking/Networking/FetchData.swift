@@ -9,13 +9,13 @@ import Foundation
 
 class FetchData {
     static let shared = FetchData()
-    
-    func getData(url: URL ,onCompletion: @escaping ([DataJson]) -> ()) {
+
+    func getData(url: URL, onCompletion: @escaping ([DataJson]) -> ()) {
         let session = URLSession.shared
-        
+
         session.dataTask(with: url) { data, _, error in
             guard let data = data else { return }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let jsonData = try decoder.decode([DataJson].self, from: data)

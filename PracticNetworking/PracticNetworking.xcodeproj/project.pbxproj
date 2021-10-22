@@ -20,7 +20,7 @@
 		5CDA6DCF27203E5700FF72C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDA6DCD27203E5700FF72C8 /* Main.storyboard */; };
 		5CDA6DD127203E5800FF72C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDA6DD027203E5800FF72C8 /* Assets.xcassets */; };
 		5CDA6DD427203E5800FF72C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDA6DD227203E5800FF72C8 /* LaunchScreen.storyboard */; };
-		5CDA6DDE27204A0600FF72C8 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DDD27204A0600FF72C8 /* ImageViewController.swift */; };
+		5CDA6DDE27204A0600FF72C8 /* DownloadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DDD27204A0600FF72C8 /* DownloadImageViewController.swift */; };
 		5CDA6DE0272053BF00FF72C8 /* ExtensionIdentiferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DDF272053BF00FF72C8 /* ExtensionIdentiferVC.swift */; };
 		5CDA6DE62720B31200FF72C8 /* AllDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DE52720B31200FF72C8 /* AllDataViewController.swift */; };
 		5CDA6DE92720C0FD00FF72C8 /* DataJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DE82720C0FD00FF72C8 /* DataJson.swift */; };
@@ -42,7 +42,7 @@
 		5CDA6DD027203E5800FF72C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CDA6DD327203E5800FF72C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CDA6DD527203E5800FF72C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CDA6DDD27204A0600FF72C8 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		5CDA6DDD27204A0600FF72C8 /* DownloadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageViewController.swift; sourceTree = "<group>"; };
 		5CDA6DDF272053BF00FF72C8 /* ExtensionIdentiferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionIdentiferVC.swift; sourceTree = "<group>"; };
 		5CDA6DE52720B31200FF72C8 /* AllDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDataViewController.swift; sourceTree = "<group>"; };
 		5CDA6DE82720C0FD00FF72C8 /* DataJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataJson.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 			children = (
 				5C91F65627217473005ED362 /* XibElements */,
 				5CDA6DCB27203E5700FF72C8 /* NetworkViewController.swift */,
-				5CDA6DDD27204A0600FF72C8 /* ImageViewController.swift */,
+				5CDA6DDD27204A0600FF72C8 /* DownloadImageViewController.swift */,
 				5CDA6DE52720B31200FF72C8 /* AllDataViewController.swift */,
 				5C91F66027222472005ED362 /* UploadImageViewController.swift */,
 			);
@@ -244,7 +244,7 @@
 				5CDA6DCC27203E5700FF72C8 /* NetworkViewController.swift in Sources */,
 				5CDA6DC827203E5700FF72C8 /* AppDelegate.swift in Sources */,
 				5C91F66327222BEA005ED362 /* ExtensionAlert.swift in Sources */,
-				5CDA6DDE27204A0600FF72C8 /* ImageViewController.swift in Sources */,
+				5CDA6DDE27204A0600FF72C8 /* DownloadImageViewController.swift in Sources */,
 				5C91F65D2721752D005ED362 /* ExtensionTableViewCell.swift in Sources */,
 				5CDA6DCA27203E5700FF72C8 /* SceneDelegate.swift in Sources */,
 				5C91F65F27218176005ED362 /* FetchData.swift in Sources */,

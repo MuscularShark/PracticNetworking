@@ -11,13 +11,13 @@ class AllDataViewController: UIViewController {
     @IBOutlet private weak var allDataTableView: UITableView!
     
     private var arrayOfJSON = [DataJson]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCell()
         setupData()
     }
-    
+
     private func setupData() {
         guard let url = URLStorage.jsonData else { return }
 
@@ -28,7 +28,7 @@ class AllDataViewController: UIViewController {
             }
         })
     }
-    
+
     private func setupCell() {
         allDataTableView.register(JsonTableViewCell.nib(), forCellReuseIdentifier: JsonTableViewCell.identifier)
     }
@@ -40,7 +40,7 @@ extension AllDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfJSON.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: JsonTableViewCell.identifier, for: indexPath)
         guard let cell = tableViewCell as? JsonTableViewCell else { return UITableViewCell() }
@@ -48,6 +48,3 @@ extension AllDataViewController: UITableViewDataSource {
         return cell
     }
 }
-
-
-                                     

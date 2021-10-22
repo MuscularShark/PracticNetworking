@@ -1,5 +1,5 @@
 //
-//  ImageViewController.swift
+//  DownloadImageViewController.swift
 //  PracticNetworking
 //
 //  Created by Сергей Гнидь on 20.10.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
+class DownloadImageViewController: UIViewController {
     @IBOutlet private weak var downloadImageView: UIImageView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
@@ -20,7 +20,7 @@ class ImageViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         
-        guard let url = URLStorage.downloadImage else {return}
+        guard let url = URLStorage.downloadImage else { return }
         
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in

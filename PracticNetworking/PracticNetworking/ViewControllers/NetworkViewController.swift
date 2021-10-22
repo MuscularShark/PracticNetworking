@@ -35,15 +35,15 @@ class NetworkViewController: UIViewController {
     }
     
     private func pushUploadImageViewController() {
-        let uploadImageVC: UploadImageViewController  = UIStoryboard.instantiateViewController()
+        let uploadImageVC: UploadImageViewController = UIStoryboard.instantiateViewController()
         
         navigationController?.pushViewController(uploadImageVC, animated: true)
     }
     
     private func pushImageViewController() {
-        let imageVC: ImageViewController = UIStoryboard.instantiateViewController()
+        let downloadImageVC: DownloadImageViewController = UIStoryboard.instantiateViewController()
         
-        navigationController?.pushViewController(imageVC, animated: true)
+        navigationController?.pushViewController(downloadImageVC, animated: true)
     }
     
     private func callGetRequest() {
