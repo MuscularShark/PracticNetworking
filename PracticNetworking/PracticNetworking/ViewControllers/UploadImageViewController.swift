@@ -11,7 +11,7 @@ class UploadImageViewController: UIViewController {
     @IBOutlet private weak var uploadImageView: UIImageView!
     @IBOutlet private weak var uploadButton: UIButton!
     
-    private var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,8 @@ class UploadImageViewController: UIViewController {
     
     private func uploadImage() {
         guard let imageData: Data = uploadImageView.image?.jpegData(compressionQuality: 1),
-              let url = URLStorage.uploadImage,
-              let backgroundTaskIdentifier = backgroundTaskIdentifier else { return }
+              let url = URLStorage.uploadImage
+            else { return }
         
         let clientId = "5af4a79c42ea7df"
         
@@ -52,7 +52,7 @@ class UploadImageViewController: UIViewController {
         
         DispatchQueue.global().async {
             self.backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(withName: "backgroundTask") {
-                UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
+                UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
                 self.backgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
             }
         }
