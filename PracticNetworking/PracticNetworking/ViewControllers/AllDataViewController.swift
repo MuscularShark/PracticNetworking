@@ -10,7 +10,7 @@ import UIKit
 class AllDataViewController: UIViewController {
     @IBOutlet private weak var allDataTableView: UITableView!
     
-    private var arrayOfJSON = [DataJson]()
+    private var arrayOfJSON = [DataJSON]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class AllDataViewController: UIViewController {
     private func setupData() {
         guard let url = URLStorage.jsonData else { return }
 
-        FetchData.shared.getData(url: url, onCompletion: { (fetchedData: [DataJson]) in
+        FetchData.shared.getData(url: url, onCompletion: { (fetchedData: [DataJSON]) in
             DispatchQueue.main.async {
                 self.arrayOfJSON = fetchedData
                 self.allDataTableView.reloadData()

@@ -23,7 +23,7 @@
 		5CDA6DDE27204A0600FF72C8 /* DownloadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DDD27204A0600FF72C8 /* DownloadImageViewController.swift */; };
 		5CDA6DE0272053BF00FF72C8 /* ExtensionIdentiferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DDF272053BF00FF72C8 /* ExtensionIdentiferVC.swift */; };
 		5CDA6DE62720B31200FF72C8 /* AllDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DE52720B31200FF72C8 /* AllDataViewController.swift */; };
-		5CDA6DE92720C0FD00FF72C8 /* DataJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DE82720C0FD00FF72C8 /* DataJson.swift */; };
+		5CDA6DE92720C0FD00FF72C8 /* DataJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA6DE82720C0FD00FF72C8 /* DataJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		5CDA6DDD27204A0600FF72C8 /* DownloadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageViewController.swift; sourceTree = "<group>"; };
 		5CDA6DDF272053BF00FF72C8 /* ExtensionIdentiferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionIdentiferVC.swift; sourceTree = "<group>"; };
 		5CDA6DE52720B31200FF72C8 /* AllDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDataViewController.swift; sourceTree = "<group>"; };
-		5CDA6DE82720C0FD00FF72C8 /* DataJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataJson.swift; sourceTree = "<group>"; };
+		5CDA6DE82720C0FD00FF72C8 /* DataJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 		5CDA6DE72720C0DC00FF72C8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5CDA6DE82720C0FD00FF72C8 /* DataJson.swift */,
+				5CDA6DE82720C0FD00FF72C8 /* DataJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 			files = (
 				5C91F65527216D31005ED362 /* URLStorage.swift in Sources */,
 				5C91F66127222472005ED362 /* UploadImageViewController.swift in Sources */,
-				5CDA6DE92720C0FD00FF72C8 /* DataJson.swift in Sources */,
+				5CDA6DE92720C0FD00FF72C8 /* DataJSON.swift in Sources */,
 				5CDA6DE62720B31200FF72C8 /* AllDataViewController.swift in Sources */,
 				5CDA6DE0272053BF00FF72C8 /* ExtensionIdentiferVC.swift in Sources */,
 				5CDA6DCC27203E5700FF72C8 /* NetworkViewController.swift in Sources */,

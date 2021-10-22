@@ -10,7 +10,7 @@ import Foundation
 class FetchData {
     static let shared = FetchData()
 
-    func getData(url: URL, onCompletion: @escaping ([DataJson]) -> ()) {
+    func getData(url: URL, onCompletion: @escaping ([DataJSON]) -> ()) {
         let session = URLSession.shared
 
         session.dataTask(with: url) { data, _, error in
@@ -18,7 +18,7 @@ class FetchData {
 
             do {
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([DataJson].self, from: data)
+                let jsonData = try decoder.decode([DataJSON].self, from: data)
                 onCompletion(jsonData)
             } catch {
                 print(error)

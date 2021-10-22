@@ -13,7 +13,7 @@ class JsonTableViewCell: UITableViewCell {
     
     static func nib() -> UINib { return UINib(nibName: JsonTableViewCell.identifier, bundle: nil) }
     
-    func setupCell(data: DataJson) {
+    func setupCell(data: DataJSON) {
         titleLabel.text = data.title
         taskLabel.text = data.body
     }
